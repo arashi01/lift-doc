@@ -1,11 +1,11 @@
 <body class="lift:content_id=main">
-	<div id="main" data-lift="surround?with=default;at=content">
-		<head>
-			<title>Home</title>
-		</head>
-		<h1 data-lift="helloWorld">
-			<span id="here">inject</span> from lift
-			<button id="click-me" class="btn btn-primary">Click me !</button>
-		</h1>
-	</div>
+    <lift:surround id="main" with=default at=content>
+        <head>
+            <title>Home</title>
+        </head>
+        <h1 data-lift="helloWorld">
+            <span id="here">inject</span> from lift
+            <button id="click-me" class="btn btn-primary">Click me !</button>
+        </h1>
+    </lift:surround>
 </body>
