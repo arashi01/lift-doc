@@ -1,0 +1,25 @@
+/* from guides.rubyonrails.org */
+.work-in-progress {
+    background: #fff9d8 url(../images/tab_yellow.gif) no-repeat left top;
+    padding: 1.25em 1em 1.25em 48px;
+}
+
+.warning {
+    background: #f9d9d8 url(../images/tab_red.gif) no-repeat left top;
+    padding: 1.25em 1.25em 1.25em 48px;
+}
+
+.code_container {
+    background: #eeeeee url(../images/tab_grey.gif) no-repeat left top;
+    padding: 0.25em 1em 0.5em 48px;
+}
+
+.note {
+    background: #fff9d8 url(../images/tab_note.gif) no-repeat left top;
+    padding: 1em 1em 0.25em 48px;
+}
+
+.info {
+    background: #d5e9f6 url(../images/tab_info.gif) no-repeat left top;
+    padding: 1em 1em 0.25em 48px;
+}

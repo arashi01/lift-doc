@@ -15,14 +15,17 @@
 
 	<link rel="stylesheet" href="/vendors/bootstrap/bootstrap-combined.min.css" />
 
+    <link data-lift="with-resource-id" rel="stylesheet" href="/vendors/rails/css/main.css">
+
 	<script src="/vendors/modernizr/modernizr.min.js">
 	</script>
 
 </head>
 
-<body id="main">
-	<lift:bind name="content"></lift:bind>
-	<script type="text/javascript" src="/vendors/jquery/jquery-1.7.2.min.js" id="jquery">
- 	</script>
+<body>
+
+    <lift:bind name="content"></lift:bind>
+
+	<script type="text/javascript" src="/vendors/jquery/jquery-1.7.2.min.js" id="jquery"></script>
 </body>
 </html>
