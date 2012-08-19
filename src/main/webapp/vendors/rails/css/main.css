@@ -1,25 +1,32 @@
 /* from guides.rubyonrails.org */
-.work-in-progress {
-    background: #fff9d8 url(../images/tab_yellow.gif) no-repeat left top;
-    padding: 1.25em 1em 1.25em 48px;
+.wip {
+    background-image:  url(../images/tab_yellow.gif);
+    background-color: #fff9d8;
 }
 
-.warning {
-    background: #f9d9d8 url(../images/tab_red.gif) no-repeat left top;
-    padding: 1.25em 1.25em 1.25em 48px;
+.warn {
+    background-color: #f9d9d8;
+    background-image: url(../images/tab_red.gif);
 }
 
-.code_container {
-    background: #eeeeee url(../images/tab_grey.gif) no-repeat left top;
-    padding: 0.25em 1em 0.5em 48px;
+.code {
+    background-color: #eeeeee;
+    background-image: url(../images/tab_grey.gif);
 }
 
 .note {
-    background: #fff9d8 url(../images/tab_note.gif) no-repeat left top;
-    padding: 1em 1em 0.25em 48px;
+    background-color: #fff9d8;
+    background-image: url(../images/tab_note.gif);
 }
 
 .info {
-    background: #d5e9f6 url(../images/tab_info.gif) no-repeat left top;
-    padding: 1em 1em 0.25em 48px;
+    background-color: #d5e9f6;
+    background-image: url(../images/tab_info.gif);
+}
+
+.wip, .warn, .code, .note, .info
+{
+    padding: 1.25em 1.25em 1.25em 48px;
+    background-position: left top;
+    background-repeat: no-repeat;
 }
