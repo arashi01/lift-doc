@@ -20,7 +20,7 @@ libraryDependencies ++= {
   Seq(
     "net.liftweb"             %% "lift-webkit"        % liftVersion                       % "compile",
     "net.liftmodules"         %% "lift-jquery-module" % (liftVersion + "-1.0-SNAPSHOT"),
-    "org.eclipse.jetty"        % "jetty-webapp"       % "7.6.5.v20120716"                 % "container; test",
+    "org.eclipse.jetty"        % "jetty-webapp"       % "7.5.4.v20111024"                 % "container; test",
     "ch.qos.logback"           % "logback-classic"    % "1.0.6",
     "org.seleniumhq.selenium"  % "selenium-java"      % "2.21.0",
     "org.scalatest"           %% "scalatest"          % "2.0.M3"                          % "test"
