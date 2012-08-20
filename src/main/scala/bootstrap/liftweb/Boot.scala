@@ -5,7 +5,7 @@ import http.Html5Properties
 import net.liftweb.http._
 import js.jquery._
 import net.liftweb.sitemap._
-import net.liftweb.sitemap.Loc.Hidden
+import sitemap.Loc.{PlaceHolder, LocGroup, Hidden}
 
 import net.liftmodules.JQueryModule
 
@@ -13,20 +13,22 @@ class Boot {
   def boot() {
 
 		LiftRules.addToPackages("net.liftweb.doc")
+    LiftRules.addToPackages("com.damianhelme.tbutils")
 
 		val entries = List(
-      Menu("Home") / "index",
-      Menu("View") / "view" submenus (
+      Menu("Home") / "index" >> LocGroup("main"),
+      Menu("View") / "view" >> LocGroup("main") >> PlaceHolder submenus (
         Menu("Surround") / "view" / "surround",
         Menu("Embed") / "view" / "embed",
         Menu("Head & Tail") / "view"/ "headtail",
         Menu("Evalutation Order") / "view" / "eval_order"
       ),
-      Menu("Snipet") / "snipet" submenus (
+      Menu("Snipet") / "snipet" >> LocGroup("main") >> PlaceHolder submenus (
         Menu("Lazy Loading") / "snipet" / "lazy",
         Menu("Parallel") / "snipet" / "parallel"
       )
     )
+
 
 		LiftRules.setSiteMap( SiteMap(entries:_*) )
 

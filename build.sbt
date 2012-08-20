@@ -23,6 +23,7 @@ libraryDependencies ++= {
     "org.eclipse.jetty"        % "jetty-webapp"       % "7.5.4.v20111024"                 % "container; test",
     "ch.qos.logback"           % "logback-classic"    % "1.0.6",
     "org.seleniumhq.selenium"  % "selenium-java"      % "2.21.0",
-    "org.scalatest"           %% "scalatest"          % "2.0.M3"                          % "test"
+    "org.scalatest"           %% "scalatest"          % "2.0.M3"                          % "test",
+    "com.damianhelme"         %% "tbutils"            % "0.1.0"                           % "compile"
   )
 }

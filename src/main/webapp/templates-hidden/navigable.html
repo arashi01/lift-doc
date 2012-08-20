@@ -1,0 +1,16 @@
+<lift:surround with=default at=content>
+
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+				<span data-lift="lift:TBNav.menuToTBNav?eager_eval=true">
+				  <span data-lift="lift:Menu.builder?top:class=nav;li_item:class=active;linkToSelf=true;expandAll=true;group=main"></span>
+				</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <lift:bind name="content" />
+    </div>
+</lift:surround>
