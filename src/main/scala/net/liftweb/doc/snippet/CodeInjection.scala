@@ -1,10 +1,10 @@
 package net.liftweb.doc.snippet
 
 import net.liftweb.util.Helpers._
-import net.liftweb.http.{LiftRules, Templates, S, DispatchSnippet}
+import net.liftweb.http.{LiftRules, S, DispatchSnippet}
 import net.liftweb.common.{Failure, Full}
 
-import xml.{Elem, Null, Attribute, Text}
+import xml.{Elem, Text}
 import net.liftweb.util.Helpers
 
 
@@ -30,7 +30,14 @@ object CodeInjection extends DispatchSnippet
         Text( msg )
       }
       case _ => {
-        Text("huh ?")
+        <div class="template-error">
+          <i class="icon-exclamation-sign"></i>
+          {
+            S.attr( attr ).
+              map( x => "template: " + x + " not found" ).
+              openOr( "attr: " + attr + " is not defined" )
+          }
+        </div>
       }
     }}
   }
