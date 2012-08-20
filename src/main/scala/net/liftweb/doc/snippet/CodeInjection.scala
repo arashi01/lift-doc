@@ -2,7 +2,7 @@ package net.liftweb.doc.snippet
 
 import net.liftweb.util.Helpers._
 import net.liftweb.http.{LiftRules, S, DispatchSnippet}
-import net.liftweb.common.{Failure, Full}
+import net.liftweb.common.{Empty, Failure, Full}
 
 import xml.{Elem, Text}
 import net.liftweb.util.Helpers
@@ -21,8 +21,8 @@ object CodeInjection extends DispatchSnippet
     "*" #> { openTemplate match {
       case Full( code ) => {
         fileExtension match {
-          case "scala" => renderCodeMirror( code, fileExtension )
-          case "html" => renderCodeMirror( code, fileExtension )
+          case "scala" => renderCodeMirror( code )
+          case "html" => renderCodeMirror( code )
           case _ => <pre> { code } </pre>
         }
       }
@@ -52,12 +52,20 @@ object CodeInjection extends DispatchSnippet
 
   def fileExtension =
   {
-    val path = S.attr( attr ).openOrThrowException( attr + " should not be empty" )
-
     path.split('.').last
   }
 
-  def renderCodeMirror( code: String, fileExtension: String ) : Elem = {
+  def path =
+  {
+    S.attr( attr ).openOrThrowException( attr + " should not be empty" )
+  }
+
+  def fileName =
+  {
+    path.split("/").last
+  }
+
+  def renderCodeMirror( code: String ) : Elem = {
 
     val guid = Helpers.nextFuncName
 
@@ -78,6 +86,7 @@ object CodeInjection extends DispatchSnippet
           }})
         }})
       </script>
+      <label for={guid}>{ fileName }</label>
     </lift:children>
   }
 }
