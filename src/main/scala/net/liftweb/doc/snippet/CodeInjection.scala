@@ -4,7 +4,9 @@ import net.liftweb.util.Helpers._
 import net.liftweb.http.{LiftRules, Templates, S, DispatchSnippet}
 import net.liftweb.common.{Failure, Full}
 
-import scala.xml.Text
+import xml.{Elem, Null, Attribute, Text}
+import net.liftweb.util.Helpers
+
 
 object CodeInjection extends DispatchSnippet
 {
@@ -18,9 +20,9 @@ object CodeInjection extends DispatchSnippet
 
     "*" #> { openTemplate match {
       case Full( code ) => {
-        fileName match {
-          case "scala" => <pre> { code } </pre>
-          case "html" => <pre> { code } </pre>
+        fileExtension match {
+          case "scala" => renderCodeMirror( code, fileExtension )
+          case "html" => renderCodeMirror( code, fileExtension )
           case _ => <pre> { code } </pre>
         }
       }
@@ -41,10 +43,34 @@ object CodeInjection extends DispatchSnippet
     } yield code
   }
 
-  def fileName =
+  def fileExtension =
   {
     val path = S.attr( attr ).openOrThrowException( attr + " should not be empty" )
 
     path.split('.').last
+  }
+
+  def renderCodeMirror( code: String, fileExtension: String ) : Elem = {
+
+    val guid = Helpers.nextFuncName
+
+    val mode = fileExtension match {
+      case "scala" => "text/x-scala"
+      case "html" => "text/html"
+    }
+
+    <lift:children>
+      <textarea id={guid}>{code}</textarea>
+      <script>
+        $(function(){{
+          CodeMirror.fromTextArea( document.getElementById("{guid}"), {{
+            lineNumbers: true,
+            readOnly: true,
+            mode: "text/x-csrc",
+            theme: "solarized-dark"
+          }})
+        }})
+      </script>
+    </lift:children>
   }
 }

@@ -17,8 +17,11 @@
     <link rel="stylesheet" href="/css/doc.css">
     <link rel="stylesheet" href="/vendors/rails/css/main.css">
 
-	<script src="/vendors/modernizr/modernizr.min.js">
-	</script>
+    <link rel="stylesheet" href="/vendors/CodeMirror2/codemirror.css">
+    <link rel="stylesheet" href="/vendors/CodeMirror2/solarized.css" />
+
+	<script src="/vendors/modernizr/modernizr.min.js"></script>
+    <script type="text/javascript" src="/vendors/jquery/jquery-1.7.2.min.js" id="jquery"></script>
 
 </head>
 
@@ -26,6 +29,8 @@
 
     <lift:bind name="content"></lift:bind>
 
-	<script type="text/javascript" src="/vendors/jquery/jquery-1.7.2.min.js" id="jquery"></script>
+    <script src="/vendors/CodeMirror2/codemirror.js"></script>
+    <script src="/vendors/CodeMirror2/clike.js"></script>
+    <script src="/vendors/CodeMirror2/htmlmixed.js"></script>
 </body>
 </html>
