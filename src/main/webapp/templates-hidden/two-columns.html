@@ -1,0 +1,13 @@
+<lift:surround with=default at=content>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span2">
+                <lift:embed what="menu"/>
+            </div>
+            <div class="span10">
+                <lift:bind name="content"></lift:bind>
+            </div>
+        </div>
+    </div>
+</lift:surround>

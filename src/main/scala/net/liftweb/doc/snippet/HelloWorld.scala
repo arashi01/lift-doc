@@ -1,6 +1,6 @@
 package net.liftweb.doc.snippet
 
-import net.liftweb.http.{S, SHtml}
+import net.liftweb.http.SHtml
 import net.liftweb.http.js.JsCmds
 import net.liftweb.util.Helpers._
 
