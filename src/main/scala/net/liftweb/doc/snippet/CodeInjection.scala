@@ -66,7 +66,7 @@ object CodeInjection extends DispatchSnippet
           CodeMirror.fromTextArea( document.getElementById("{guid}"), {{
             lineNumbers: true,
             readOnly: true,
-            mode: "text/x-csrc",
+            mode: "{mode}",
             theme: "solarized-dark"
           }})
         }})

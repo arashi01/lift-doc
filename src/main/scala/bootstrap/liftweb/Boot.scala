@@ -1,10 +1,11 @@
 package bootstrap.liftweb
 
 import net.liftweb._
-import http._
+import http.Html5Properties
+import net.liftweb.http._
 import js.jquery._
-import sitemap._
-import sitemap.Loc.Hidden
+import net.liftweb.sitemap._
+import net.liftweb.sitemap.Loc.Hidden
 
 import net.liftmodules.JQueryModule
 
@@ -14,7 +15,17 @@ class Boot {
 		LiftRules.addToPackages("net.liftweb.doc")
 
 		val entries = List(
-      Menu("Home") / "index"
+      Menu("Home") / "index",
+      Menu("View") / "view" submenus (
+        Menu("Surround") / "view" / "surround",
+        Menu("Embed") / "view" / "embed",
+        Menu("Head & Tail") / "view"/ "headtail",
+        Menu("Evalutation Order") / "view" / "eval_order"
+      ),
+      Menu("Snipet") / "snipet" submenus (
+        Menu("Lazy Loading") / "snipet" / "lazy",
+        Menu("Parallel") / "snipet" / "parallel"
+      )
     )
 
 		LiftRules.setSiteMap( SiteMap(entries:_*) )
