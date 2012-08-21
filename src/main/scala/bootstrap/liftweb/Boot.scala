@@ -12,6 +12,8 @@ class Boot {
   def boot() {
 
 		LiftRules.addToPackages("net.liftweb.doc")
+    LiftRules.addToPackages("net.liftweb.doc.guide")
+
     LiftRules.addToPackages("com.damianhelme.tbutils")
 
 		val entries = List(
