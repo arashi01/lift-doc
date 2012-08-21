@@ -20,7 +20,7 @@ class Boot {
       Menu("Home") / "index" >> LocGroup("main"),
       Menu("Sitemap") / "sitemap" >> LocGroup("main"),
       Menu("View") / "view" >> LocGroup("main"),
-      Menu("Snipet") / "snipet" >> LocGroup("main"),
+      Menu("Snippet") / "snipet" >> LocGroup("main"),
       Menu("Form") / "form" >> LocGroup("main"),
       Menu("Http") / "http" >> LocGroup("main"),
       Menu("Javascript") / "javascript" >> LocGroup("main"),
