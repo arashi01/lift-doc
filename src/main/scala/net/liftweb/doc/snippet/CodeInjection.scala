@@ -19,25 +19,26 @@ object CodeInjection extends DispatchSnippet
   def render = {
 
     "*" #> { openTemplate match {
-      case Full( code ) => {
+      case Full( ( code, fileName, fileExtension ) ) => {
         fileExtension match {
-          case "scala" => renderCodeMirror( code )
-          case "html" => renderCodeMirror( code )
+          case "scala" => renderCodeMirror( code, fileName, fileExtension )
+          case "html" => renderCodeMirror( code, fileName, fileExtension )
           case _ => <pre> { code } </pre>
         }
       }
       case Failure( msg, _, _ ) => {
-        Text( msg )
-      }
-      case _ => {
         <div class="template-error">
           <i class="icon-exclamation-sign"></i>
           {
-            S.attr( attr ).
-              map( x => "template: " + x + " not found" ).
-              openOr( "attr: " + attr + " is not defined" )
+            msg
           }
         </div>
+      }
+      case _ => {
+			<div class="template-error">
+				<i class="icon-exclamation-sign"></i>
+	          Empty
+			</div>
       }
     }}
   }
@@ -45,27 +46,14 @@ object CodeInjection extends DispatchSnippet
   def openTemplate =
   {
     for {
-      path <- S.attr( attr )
-      code <- LiftRules.loadResourceAsString( path )
-    } yield code
+      path <- S.attr( attr ) ?~ ( "attr: " + attr + " is not defined" )
+		fileName <- Full( path.split('/').last ) ?~ ( "cannot parse a filename: " + path )
+		fileExtension <- Full( fileName.split('.').last ) ?~ ( "cannot parse a file extension: " + fileName )
+      code <- LiftRules.loadResourceAsString( path ) ?~ ( "template: " + path + " not found" )
+    } yield ( code, fileName, fileExtension )
   }
 
-  def fileExtension =
-  {
-    path.split('.').last
-  }
-
-  def path =
-  {
-    S.attr( attr ).openOrThrowException( attr + " should not be empty" )
-  }
-
-  def fileName =
-  {
-    path.split("/").last
-  }
-
-  def renderCodeMirror( code: String ) : Elem = {
+  def renderCodeMirror( code:String, fileName:String, fileExtension:String ) : Elem = {
 
     val guid = Helpers.nextFuncName
 
