@@ -4,7 +4,7 @@ version := "0.0.1"
 
 organization := "net.liftweb.doc"
 
-scalaVersion := "2.9.1"
+scalaVersion := "2.9.2"
 
 resolvers ++= Seq(
   "snapshots" at "http://oss.sonatype.org/content/repositories/snapshots",
@@ -24,6 +24,6 @@ libraryDependencies ++= {
     "ch.qos.logback"           % "logback-classic"    % "1.0.6",
     "org.seleniumhq.selenium"  % "selenium-java"      % "2.21.0",
     "org.scalatest"           %% "scalatest"          % "2.0.M3"                          % "test",
-    "com.damianhelme"         %% "tbutils"            % "0.1.0"                           % "compile"
+    "com.untyped"	      %% "css-selector"       % "0.1-SNAPSHOT"
   )
 }
