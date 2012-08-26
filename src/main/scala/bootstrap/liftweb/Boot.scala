@@ -13,20 +13,21 @@ class Boot {
 
 		LiftRules.addToPackages("net.liftweb.doc")
     LiftRules.addToPackages("net.liftweb.doc.guide")
-
     LiftRules.addToPackages("com.damianhelme.tbutils")
 
 		val entries = List(
-      Menu("Home") / "index" >> LocGroup("main"),
-      Menu("Sitemap") / "sitemap" >> LocGroup("main"),
-      Menu("View") / "view" >> LocGroup("main"),
-      Menu("Snippet") / "snipet" >> LocGroup("main"),
-      Menu("Form") / "form" >> LocGroup("main"),
-      Menu("Http") / "http" >> LocGroup("main"),
-      Menu("Javascript") / "javascript" >> LocGroup("main"),
-      Menu("Testing") / "testing" >> LocGroup("main"),
-      Menu("Deployment") / "deployment" >> LocGroup("main"),
-      Menu("Persistence") / "persistence" >> LocGroup("main") >> PlaceHolder submenus (
+      Menu("Home") / "index",
+      Menu("Sitemap") / "sitemap",
+      Menu("View") / "view",
+      Menu("Snippet") / "snippet" >> PlaceHolder submenus (
+        Menu("Transformtion") / "snippet" / "transformation"
+      ),
+      Menu("Form") / "form",
+      Menu("Http") / "http",
+      Menu("Javascript") / "javascript",
+      Menu("Testing") / "testing",
+      Menu("Deployment") / "deployment",
+      Menu("Persistence") / "persistence" >> PlaceHolder submenus (
         Menu("Record") / "persistence" / "record",
         Menu("Mapper") / "persistence" / "mapper",
         Menu("NOSQL") / "persistence" / "nosql"

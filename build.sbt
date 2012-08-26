@@ -24,6 +24,6 @@ libraryDependencies ++= {
     "ch.qos.logback"           % "logback-classic"    % "1.0.6",
     "org.seleniumhq.selenium"  % "selenium-java"      % "2.21.0",
     "org.scalatest"           %% "scalatest"          % "2.0.M3"                          % "test",
-    "com.untyped"	      %% "css-selector"       % "0.1-SNAPSHOT"
+    "org.fusesource.scalate"   % "scalate-core"       % "1.5.3"
   )
 }
