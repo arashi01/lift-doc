@@ -4,7 +4,7 @@ import net.liftweb.util.Helpers._
 import net.liftweb.http.{LiftRules, S, DispatchSnippet}
 import net.liftweb.common.{Empty, Failure, Full}
 
-import xml.{Elem, Text}
+import xml.{NodeSeq, Elem, Text}
 import net.liftweb.util.Helpers
 
 
@@ -21,8 +21,8 @@ object CodeInjection extends DispatchSnippet
     "*" #> { openTemplate match {
       case Full( ( code, fileName, fileExtension ) ) => {
         fileExtension match {
-          case "scala" => renderCodeMirror( code, fileName, fileExtension )
-          case "html" => renderCodeMirror( code, fileName, fileExtension )
+          case "scala" => renderCodeMirror( Text( code ), fileName, fileExtension )
+          case "html" => renderCodeMirror( Text( code ), fileName, fileExtension )
           case _ => <pre> { code } </pre>
         }
       }
@@ -47,34 +47,19 @@ object CodeInjection extends DispatchSnippet
   {
     for {
       path <- S.attr( attr ) ?~ ( "attr: " + attr + " is not defined" )
-		fileName <- Full( path.split('/').last ) ?~ ( "cannot parse a filename: " + path )
-		fileExtension <- Full( fileName.split('.').last ) ?~ ( "cannot parse a file extension: " + fileName )
+		  fileName <- Full( path.split('/').last ) ?~ ( "cannot parse a filename: " + path )
+		  fileExtension <- Full( fileName.split('.').last ) ?~ ( "cannot parse a file extension: " + fileName )
       code <- LiftRules.loadResourceAsString( path ) ?~ ( "template: " + path + " not found" )
     } yield ( code, fileName, fileExtension )
   }
 
-  def renderCodeMirror( code:String, fileName:String, fileExtension:String ) : Elem = {
-
-    val guid = Helpers.nextFuncName
+  def renderCodeMirror( code: NodeSeq, fileName: String, fileExtension: String ) : Elem = {
 
     val mode = fileExtension match {
       case "scala" => "text/x-scala"
       case "html" => "text/html"
     }
 
-    <lift:children>
-      <textarea id={guid}>{code}</textarea>
-      <script>
-        $(function(){{
-          CodeMirror.fromTextArea( document.getElementById("{guid}"), {{
-            lineNumbers: true,
-            readOnly: true,
-            mode: "{mode}",
-            theme: "solarized-dark"
-          }})
-        }})
-      </script>
-      <label for={guid}>{ fileName }</label>
-    </lift:children>
+    CodeMirror.show( code, mode, label = fileName )
   }
 }

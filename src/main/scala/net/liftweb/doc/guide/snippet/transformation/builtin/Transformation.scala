@@ -1,6 +1,6 @@
 package net.liftweb.doc.guide.snippet.transformation.builtin
 
-class Transformation
+object Transformation
 {
 
   /*

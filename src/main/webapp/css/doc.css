@@ -1,7 +1,7 @@
-.row-fluid
+.span6
 {
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
 }
 
 .template-error
@@ -12,7 +12,7 @@
     font-size: 20px;
 }
 
-.code label
+.code label, .info label
 {
     text-align: center;
     font-size: 20px;
@@ -29,4 +29,9 @@ iframe
     height: auto !important;
     overflow-y: hidden !important;
     overflow-x: auto !important;
+}
+
+section
+{
+    padding-top: 80px;
 }
