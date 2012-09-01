@@ -1,15 +1,10 @@
 package net.liftweb.doc.guide.snippet
 
-import net.liftweb.http.DispatchSnippet
-
 import org.fusesource.scalate.scuery.Transformer
 import xml.NodeSeq
 
-object Scuery extends DispatchSnippet {
-  def dispatch = {
-    case _ => render
-  }
-
+class Scuery
+{
   def render( x: NodeSeq ): NodeSeq = transformer( x )
 
   object transformer extends Transformer {

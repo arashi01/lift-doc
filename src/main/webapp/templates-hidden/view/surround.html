@@ -1,23 +1,38 @@
-<div class="row-fluid">
-    <div class="span12">
-
-        <h2>Surround</h2>
-
-        <div class="note">
-            lift will look for templates in /webapp/templates-hidden by default
+<div>
+    <div class="row-fluid">
+        <div class="span12">
+            <h2>Surround</h2>
+            <div class="note">
+                Lift will look for templates in /templates-hidden by default
+            </div>
+            <div class="note">
+                Always omit *.html file extension when using embed or surround snippets
+            </div>
         </div>
+    </div>
 
-        <div class="code">
-            <code data-lift="CodeInjection?what=/guide-hidden/view/surround/default.html"></code>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="code" id="surround-template-html">
+                <code data-lift="CodeInjection?what=/guide-hidden/view/surround/article-template.html"></code>
+            </div>
         </div>
+    </div>
 
-        <div class="code">
-            <code data-lift="CodeInjection?what=/guide-hidden/view/surround/surround.html"></code>
+
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="code">
+                <code data-lift="CodeInjection?what=/guide-hidden/view/surround/surround.html"></code>
+            </div>
         </div>
+    </div>
 
-        <div class="code">
-            <code data-lift="CodeInjection?what=/guide-hidden/view/surround/result.html;label=false"></code>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="info">
+                <i data-lift="embed?what=/guide-hidden/view/surround/surround"></i>
+            </div>
         </div>
-
     </div>
 </div>

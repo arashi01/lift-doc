@@ -1,8 +1,3 @@
-body
-{
-    margin: 10px;
-}
-
 .row-fluid
 {
     margin-top: 10px;
@@ -29,14 +24,9 @@ iframe
     width: 100%;
     height: 800px;
 }
-/*
-#css .code
-{
-    height: 450px;
-}
 
-#css .CodeMirror-scroll
-{
-    height: 400px;
+.CodeMirror-scroll {
+    height: auto !important;
+    overflow-y: hidden !important;
+    overflow-x: auto !important;
 }
-*/
