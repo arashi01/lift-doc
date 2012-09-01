@@ -1,15 +1,15 @@
-package net.liftweb.doc.guide.snippet
+package net.liftweb.doc.guide.snippet.transformation.scuery
 
 import org.fusesource.scalate.scuery.Transformer
 import xml.NodeSeq
 
-class Scuery
-{
-  def render( x: NodeSeq ): NodeSeq = transformer( x )
+class Scuery {
+  def render(x: NodeSeq): NodeSeq = transformer(x)
 
   object transformer extends Transformer {
     $(".name").contents = "bob"
     $(".company").contents = "bob inc."
     $(".company").attribute("href").value = "http://www.bob.com"
   }
+
 }

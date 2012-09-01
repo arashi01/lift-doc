@@ -20,7 +20,8 @@ class Boot {
       Menu("Sitemap") / "sitemap",
       Menu("View") / "view",
       Menu("Snippet") / "snippet" >> PlaceHolder submenus (
-        Menu("Transformtion") / "snippet" / "transformation"
+        Menu("Lift Transformtion") / "snippet" / "transformation" / "lift",
+        Menu("Scuery Transformtion") / "snippet" / "transformation" / "scuery"
       ),
       Menu("Form") / "form",
       Menu("Http") / "http",
