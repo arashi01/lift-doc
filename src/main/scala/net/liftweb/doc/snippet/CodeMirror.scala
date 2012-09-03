@@ -17,13 +17,13 @@ object CodeMirror extends DispatchSnippet
     val guid = Helpers.nextFuncName
 
     <lift:children>
-      <textarea id={guid}>{code}</textarea>
+      <textarea id={guid}>{ code }</textarea>
       <script>
         $(function(){{
           CodeMirror.fromTextArea( document.getElementById("{guid}"), {{
             lineNumbers: true,
             readOnly: true,
-            mode: "{mode}",
+            mode: "{ mode }",
             theme: "solarized-dark"
           }});
         }})
